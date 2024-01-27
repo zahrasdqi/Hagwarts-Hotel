@@ -8,6 +8,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Arrays;
 
+
 public class AddEmployee extends JFrame implements ActionListener {
 
     JTextField nameText,personalCodeTextE,PhoneText,ageText,salaryText,emailText;//bankBalance?
@@ -29,7 +30,7 @@ public class AddEmployee extends JFrame implements ActionListener {
         panel.add(name);
 
         nameText = new JTextField();
-        nameText.setBounds(200,30,150,27);
+        nameText.setBounds(210,30,150,27);
         nameText.setBackground(Color.WHITE);
         nameText.setFont(new Font("Tahoma", Font.BOLD,14));
         nameText.setForeground(Color.BLACK);
@@ -42,7 +43,7 @@ public class AddEmployee extends JFrame implements ActionListener {
         panel.add(Age);
 
         ageText = new JTextField();
-        ageText.setBounds(200,80,150,27);
+        ageText.setBounds(210,80,150,27);
         ageText.setBackground(Color.WHITE);
         ageText.setFont(new Font("Tahoma", Font.BOLD,14));
         ageText.setForeground(Color.BLACK);
@@ -55,14 +56,14 @@ public class AddEmployee extends JFrame implements ActionListener {
         panel.add(gender);
 
         radioButtonM = new JRadioButton("MALE");
-        radioButtonM.setBounds(200,120,70,27);
+        radioButtonM.setBounds(210,120,100,27);
         radioButtonM.setBackground(Color.MAGENTA);
         radioButtonM.setFont(new Font("Tahoma", Font.BOLD,14));
         radioButtonM.setForeground(Color.BLACK);
         panel.add(radioButtonM);
 
         radioButtonF = new JRadioButton("FEMALE");
-        radioButtonF.setBounds(280,120,100,27);
+        radioButtonF.setBounds(330,120,100,27);
         radioButtonF.setBackground(Color.MAGENTA);
         radioButtonF.setFont(new Font("Tahoma", Font.BOLD,14));
         radioButtonF.setForeground(Color.BLACK);
@@ -76,7 +77,7 @@ public class AddEmployee extends JFrame implements ActionListener {
 
         comboBox = new JComboBox(new String[]{"Receptionist", "Housekeeping", "Kitchen","Room Service", "Manager", "Accountant","Chef"});
         comboBox.setBackground(Color.MAGENTA);
-        comboBox.setBounds(200,170,150,30);
+        comboBox.setBounds(210,170,150,30);
         comboBox.setFont(new Font("Tahoma", Font.BOLD,14));
         comboBox.setForeground(Color.black);
         panel.add(comboBox);
@@ -88,7 +89,7 @@ public class AddEmployee extends JFrame implements ActionListener {
         panel.add(salary);
 
         salaryText = new JTextField();
-        salaryText.setBounds(200,220,150,27);
+        salaryText.setBounds(210,220,150,27);
         salaryText.setBackground(Color.WHITE);
         salaryText.setFont(new Font("Tahoma", Font.BOLD,14));
         salaryText.setForeground(Color.BLACK);
@@ -101,20 +102,20 @@ public class AddEmployee extends JFrame implements ActionListener {
         panel.add(phone);
 
         PhoneText = new JTextField();
-        PhoneText.setBounds(200,270,150,27);
+        PhoneText.setBounds(210,270,150,27);
         PhoneText.setBackground(Color.WHITE);
         PhoneText.setFont(new Font("Tahoma", Font.BOLD,14));
         PhoneText.setForeground(Color.BLACK);
         panel.add(PhoneText);
 
-        JLabel personalCode = new JLabel("IDENTIFY CODE");
+        JLabel personalCode = new JLabel("PERSONAL CODE");
         personalCode.setBounds(60,320,150,27);
         personalCode.setFont(new Font("serif", Font.BOLD, 17));
         personalCode.setForeground(Color.WHITE);
         panel.add(personalCode);
 
         personalCodeTextE = new JTextField();
-        personalCodeTextE.setBounds(200,320,150,27);
+        personalCodeTextE.setBounds(210,320,150,27);
         personalCodeTextE.setBackground(Color.WHITE);
         personalCodeTextE.setFont(new Font("Tahoma", Font.BOLD,14));
         personalCodeTextE.setForeground(Color.BLACK);
@@ -124,10 +125,10 @@ public class AddEmployee extends JFrame implements ActionListener {
         password.setBounds(60,370,150,27);
         password.setFont(new Font("serif", Font.BOLD, 17));
         password.setForeground(Color.WHITE);
-        password.add(password);
+        panel.add(password);
 
         passwordField = new JPasswordField();
-        passwordField.setBounds(200,370,150,27);
+        passwordField.setBounds(210,370,150,27);
         passwordField.setBackground(Color.WHITE);
         passwordField.setFont(new Font("Tahoma", Font.PLAIN,14));
         passwordField.setForeground(Color.BLACK);
@@ -140,7 +141,7 @@ public class AddEmployee extends JFrame implements ActionListener {
         panel.add(email);
 
         emailText = new JTextField();
-        emailText.setBounds(200,420,250,27);
+        emailText.setBounds(210,420,250,27);
         emailText.setBackground(Color.WHITE);
         emailText.setFont(new Font("Tahoma", Font.BOLD,14));
         emailText.setForeground(Color.BLACK);
@@ -153,16 +154,18 @@ public class AddEmployee extends JFrame implements ActionListener {
         panel.add(AED);
 
         add = new JButton("ADD");
-        add.setBounds(80,480,100,30);
+        add.setBounds(60,480,100,30);
         add.setBackground(Color.WHITE);
         add.setForeground(Color.BLACK);
+        add.setFont(new Font("Tahoma", Font.BOLD, 14));
         add.addActionListener(this);
         panel.add(add);
 
         back = new JButton("BACK");
-        back.setBounds(200,480,100,30);
+        back.setBounds(210,480,100,30);
         back.setBackground(Color.WHITE);
         back.setForeground(Color.BLACK);
+        back.setFont(new Font("Tahoma", Font.BOLD, 14));
         back.addActionListener(this);
         panel.add(back);
 
@@ -191,21 +194,32 @@ public class AddEmployee extends JFrame implements ActionListener {
                 gender = " Female";
             }
 
-            String Einfo="passenger name :"+name+" age :"+age+" salary :"+salary+" phone :"+phone+" email :"
-                    +email+" password :"+password+" personalcode :"+personalCode+" job :"+job+" gender :"+gender;
-            try {
-                    FileWriter fileWriter=new FileWriter("Employee.txt",true);
-                    FileWriter fileWriter1=new FileWriter(personalCode,true);
-                    fileWriter.write(Einfo);
-                    fileWriter1.write(Einfo);
-                    fileWriter.close();
-                    fileWriter1.close();;
-                    new Manager();
-                } catch (IOException ex) {
-                    ex.printStackTrace();
-                }
+            Validation validation = new Validation(email, password);
+            if (!name.equals(null) && !personalCode.equals(null)){
+                if(validation.EmailValidator(email) && validation.passcheck(password)) {
 
+                    String Einfo = "passenger name :" + name + " age :" + age + " salary :" + salary + " phone :" + phone + " email :"
+                            + email + " password :" + password + " personalcode :" + personalCode + " job :" + job + " gender :" + gender+"\n";
+                    try {
+                        FileWriter fileWriter = new FileWriter("Employee.txt", true);
+                        FileWriter fileWriter1 = new FileWriter(personalCode, true);
+                        fileWriter.write(Einfo);
+                        fileWriter1.write(Einfo);
+                        fileWriter.close();
+                        fileWriter1.close();
+                        JOptionPane.showMessageDialog(null,"added");
+                        new Manager();
+                        setVisible(false);
+                    } catch (IOException ex) {
+                        ex.printStackTrace();
+                    }
+
+                }
             }
+             else {
+                JOptionPane.showMessageDialog(null, "invalid");
+            }
+        }
 
            /* try{
                 ConDatabase c= new ConDatabase();
@@ -221,11 +235,12 @@ public class AddEmployee extends JFrame implements ActionListener {
 
         }*/
             else {
+                new Manager();
                 setVisible(false);
             }
         }
 
     public static void main(String[] args) {
-        new AddEmployee();
+        AddEmployee addEmployee = new AddEmployee();
     }
 }

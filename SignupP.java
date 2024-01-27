@@ -111,25 +111,26 @@ public class SignupP extends JFrame implements ActionListener {
                 String password = passwordField1.getText();
 
                 Validation validation = new Validation(email, password);
-                if(!name.equals(null) && !personalcode.equals(null) && personalcode.length()==10)
-                    if (validation.EmailValidator(email) && validation.passcheck(password)) {
+                if (!name.equals(null) && !personalcode.equals(null) && validation.EmailValidator(email)
+                        && validation.passcheck(password)) {
 
-                        String Pinfo = "passenger name :" + name + ",personal code :" + personalcode + ",email :" + email + ",password :" + password+"\n";
-                        try {
-                            FileWriter fileWriter = new FileWriter("Pasenger.txt", true);
-                            FileWriter fileWriter1 = new FileWriter(personalcode, true);
-                            fileWriter1.write(Pinfo);
-                            fileWriter.write(Pinfo);
-                            fileWriter.close();
-                            fileWriter1.close();
-                            // new Passenger();
-                        } catch (IOException ex) {
-                            ex.printStackTrace();
-                        }
-                    } else {
-                        JOptionPane.showMessageDialog(null, "invalid");
+                    String Pinfo = "passenger name :" + name + ",personal code :" + personalcode + ",email :" + email + ",password :" + password + "\n";
+                    try {
+                        FileWriter fileWriter = new FileWriter("Pasenger.txt", true);
+                        FileWriter fileWriter1 = new FileWriter(personalcode, true);
+                        fileWriter1.write(Pinfo);
+                        fileWriter.write(Pinfo);
+                        fileWriter.close();
+                        fileWriter1.close();
+                        //new Passenger();
+                        setVisible(false);
+                    } catch (IOException ex) {
+                        ex.printStackTrace();
                     }
+                } else {
+                    JOptionPane.showMessageDialog(null, "invalid");
 
+                }
 
             } else {
                 new MPE();

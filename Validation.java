@@ -52,11 +52,6 @@ public class Validation {
                 if(c>3) {
                     return true;
                 }
-                else{
-                    System.out.println("try again:");
-                    String pass1=scanner.next();
-                    passcheck(pass1);
-                }
 
 
                 return false;

@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Arrays;
 
 public class LoginE extends JFrame implements ActionListener {
 
@@ -71,7 +72,7 @@ public class LoginE extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         String email=textField1.getText();
-        String password=passwordField1.getText();
+        String password= Arrays.toString(passwordField1.getPassword());
 
         if (e.getSource() == b1) {
             try{
@@ -89,7 +90,7 @@ public class LoginE extends JFrame implements ActionListener {
                     }
                 }
                 if(emailfound && passwordfound){
-                    // new Passenger();
+                     new Employee();
                 }
                 else {
                     JOptionPane.showMessageDialog(null,"invalid");

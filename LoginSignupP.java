@@ -14,7 +14,7 @@ public class LoginSignupP extends JFrame implements ActionListener {
             panel.setBackground(Color.PINK);
             add(panel);
 
-            JLabel hotel = new JLabel("LUXURY HOTEL");
+            JLabel hotel = new JLabel("PASSENGER PAGE");
             hotel.setBounds(340,24,445,35);
             hotel.setFont(new Font("Tahoma", Font.BOLD, 31));
             hotel.setForeground(Color.WHITE);

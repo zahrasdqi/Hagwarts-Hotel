@@ -150,10 +150,10 @@ import java.util.Date;
                 String datte = date.getText();
 
                 String reservation="personal code of passenger:"+personalcodep+",personal code of employee :"+personalcodee+
-                        ",staying time :"+stayingtime+",cost :"+cost+",room number :"+roomnum+",date :"+datte;
+                        ",staying time :"+stayingtime+",cost :"+cost+",room number :"+roomnum+",date :"+datte+" * ";
 
                 try {
-                    FileWriter fileWriter=new FileWriter("Employee.txt",true);
+                    FileWriter fileWriter=new FileWriter("Reservation.txt",true);
                     FileWriter fileWriter1=new FileWriter(roomnum,true);
                     fileWriter.write(reservation);
                     fileWriter1.write(reservation);

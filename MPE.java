@@ -43,7 +43,7 @@ public class MPE extends JFrame implements ActionListener {
         buttonGroupas.add(radioButtonP);
 
         b1 = new JButton("OK");
-        b1.setBounds(40, 170, 120, 30);
+        b1.setBounds(40, 170, 130, 30);
         b1.setFont(new Font("Tahoma", Font.BOLD, 16));
         b1.setBackground(Color.WHITE);
         b1.setForeground(Color.BLACK);
@@ -51,7 +51,7 @@ public class MPE extends JFrame implements ActionListener {
         panel.add(b1);
 
         b2 = new JButton("Cancel");
-        b2.setBounds(40, 170, 120, 30);
+        b2.setBounds(40, 220, 130, 30);
         b2.setFont(new Font("Tahoma", Font.BOLD, 16));
         b2.setBackground(Color.WHITE);
         b2.setForeground(Color.BLACK);
@@ -71,12 +71,15 @@ public class MPE extends JFrame implements ActionListener {
         if(e.getSource() == b1) {
             if (radioButtonM.isSelected()) {
                 new LoginSignupM();
+                setVisible(false);
             }
             if (radioButtonP.isSelected()) {
                 new LoginSignupP();
+                setVisible(false);
             }
             if (radioButtonE.isSelected()) {
                 new LoginSignupE();
+                setVisible(false);
             }
         }
         else{
